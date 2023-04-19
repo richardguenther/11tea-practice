@@ -60,7 +60,10 @@
 
     {%- if scripts -%}
       {% for script in scripts %}
-        <script src={{ script | prepend: "/js/" }} type="module"></script>
+        <script
+          src={{ script | prepend: "/js/" }}
+          type="module"
+          defer></script>
       {% endfor %}
     {%- endif -%}
 
