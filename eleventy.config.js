@@ -1,16 +1,16 @@
 const markdownIt = require('markdown-it');
-const esbuild = require('./_source/_utilities/esbuild.js');
-const lightingcss = require('./_source/_utilities/lightningcss.js');
-const image = require('./_source/_utilities/image.js');
-const style = require('./_source/_utilities/style.js');
-const setVar = require('./_source/_utilities/setVar.js');
-const fullDate = require('./_source/_utilities/fullDate.js');
-const getRandom = require('./_source/_utilities/getRandom.js');
-const markdownify = require('./_source/_utilities/markdownify.js');
-const sortBy = require('./_source/_utilities/sortBy.js');
-const where = require('./_source/_utilities/where.js');
+const esbuild = require('./_utilities/esbuild.js');
+const lightingcss = require('./_utilities/lightningcss.js');
+const image = require('./_utilities/image.js');
+const style = require('./_utilities/style.js');
+const setVar = require('./_utilities/setVar.js');
+const fullDate = require('./_utilities/fullDate.js');
+const getRandom = require('./_utilities/getRandom.js');
+const markdownify = require('./_utilities/markdownify.js');
+const sortBy = require('./_utilities/sortBy.js');
+const where = require('./_utilities/where.js');
 const htmlmin = require('html-minifier-terser');
-const { isProduction, isStaging } = require('./_source/_data/env.js');
+const { isProduction, isStaging } = require('./_data/env.js');
 
 module.exports = function (eleventyConfig) {
   /* --------------------------------------------------------------------------
@@ -33,7 +33,7 @@ Dev Server settings
 
   eleventyConfig.setServerOptions({
     domDiff: true,
-    watch: ["_public/assets/css/tailwind.css"],
+    watch: ["_site/assets/css/tailwind.css"],
   });
 
   /* --------------------------------------------------------------------------
@@ -71,16 +71,18 @@ Dev Server settings
   /* --------------------------------------------------------------------------
   Files & folders
   -------------------------------------------------------------------------- */
-  eleventyConfig.addPassthroughCopy('_source/assets/fonts');
-  eleventyConfig.addPassthroughCopy({ "_source/assets/static": "/" });
-  eleventyConfig.addPassthroughCopy('_source/assets/images');
+  eleventyConfig.addPassthroughCopy('./assets/fonts');
+  eleventyConfig.addPassthroughCopy({ "./assets/static": "/" });
+  eleventyConfig.addPassthroughCopy('./assets/images');
+
+
 
   return {
     dir: {
-      input: '_source',
-      output: '_public',
-      layouts: '_layouts',
-      includes: '_includes',
+      input: 'content',
+      output: '_site',
+      layouts: '../_includes/_layouts',
+      includes: '../_includes',
     },
     templateFormats: ['html', 'md', 'liquid'],
     htmlTemplateEngine: 'liquid',

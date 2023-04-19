@@ -28,8 +28,8 @@
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9"  },
   "scripts": {
-    "tailwindcss-dev": "npx tailwindcss tailwind-input.css -o _public/assets/css/tailwind.css --watch",
-    "tailwindcss": "npx tailwindcss tailwind-input.css -o _public/assets/css/tailwind.css --minify",
+    "tailwindcss-dev": "npx tailwindcss -i tailwind-input.css -o _site/css/tailwind.css --watch",
+    "tailwindcss": "npx tailwindcss -i tailwind-input.css -o _site/css/tailwind.css --minify",
 
     "11ty-dev": "ELEVENTY_ENV=production eleventy --serve --incremental",
     "11ty-stage": "ELEVENTY_ENV=stage eleventy",

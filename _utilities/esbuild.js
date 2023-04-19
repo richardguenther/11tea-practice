@@ -21,8 +21,8 @@ module.exports = function (eleventyConfig) {
         splitting: true,
         format: 'esm',
         logLevel: 'warning',
-        outdir: '_public/assets/js',
-        outbase: '_source/assets/js',
+        outdir: '_site/js',
+        outbase: 'content/js',
         metafile: true,
       });
 
