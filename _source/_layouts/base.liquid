@@ -4,7 +4,7 @@
   <head>
 
     <meta charset="utf-8">
-
+    <meta name="generator" content="{{ eleventy.generator }}">
 
 
     <title>
@@ -68,13 +68,23 @@
 
   </head>
 
-  <body>
+  <body class="flex flex-col min-h-screen bg-pink-200">
+
+    <section id="Header-Section" class="flex justify-center bg-teal-300 ">
+      {% render "header" %}
+    </section>
 
 
-    {{ content }}
+    <section id="main-section" class="flex justify-center bg-yellow-100 grow">
+      <main class="flex max-w-screen-xl bg-gray-300 grow ">
+        {{ content }}
+      </main>
+    </section>
 
 
-
+    <section id="Footer-Section" class="flex justify-center bg-amber-400 ">
+      {% render "footer" %}
+    </section>
   </body>
 
 </html>
